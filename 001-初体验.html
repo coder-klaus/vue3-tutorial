@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 通过 CDN 注入全局对象 Vue -->
+  <!-- 如果下载到本地 推荐放到 lib 「 library 」 目录  -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.5.18/dist/vue.global.min.js"></script>
+</head>
+<body>
+  <!-- 挂载点 -->
+  <div id="app"></div>
+
+  <script>
+    // 创建一个 Vue 应用实例
+    const app = Vue.createApp({
+      // 模板
+      template: `<div>Hello Vue</div>`
+    })
+
+    // 实际渲染
+    const root = app.mount('#app')
+
+    console.log(app)
+    console.log(root)
+  </script>
+</body>
+</html>
