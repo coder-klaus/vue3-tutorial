@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>配置选项</title>
+  <link rel="icon" href="https://vuejs.org/logo.svg">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <h2>{{ info.name }} -- {{ info.age }}</h2>
+    <button @click="changeInfo">修改info</button>
+    <button @click="changeInfoName">修改info.name</button>
+  </div>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          info: { name: "Klaus", age: 18 }
+        }
+      },
+      methods: {
+        changeInfoName() {
+          // 开启 deep 后，属性值的改变会触发侦听器
+          // 此时 因为仅仅只是 属性值的改变，而 侦听器中 新值 和 旧值 是 代理对象的引用
+          // 因此 新值 和 旧值 的引用地址是相同的
+          // ⚠️: 因为开启了立即侦听，首次渲染 oldVlaue为undefined，所以是false，后续触发时，皆为 true
+          this.info.name = "John"
+        },
+        changeInfo() {
+          // 可以触发侦听器
+          // 此时 因为 info 的值被整体替换，而 侦听器中 新值 和 旧值 是 代理对象的引用
+          // 因此 新值 和 旧值 的引用地址是不同的
+          this.info = { name: "John", age: 18 }
+        }
+      },
+      watch: {
+        // 默认watch监听不会进行深度监听
+        // 只能监听到 info 的值被整体替换，无法监听到 info 的属性值「 如 info.name 」被修改
+        // info(newValue, oldValue) {
+        //   console.log("侦听到info改变:", newValue, oldValue)
+        // }
+
+        // 进行深度监听
+        info: {
+          // 侦听器函数
+          handler(newValue, oldValue) {
+            console.log(newValue === oldValue)
+          },
+          // 配置选项
+          deep: true, // 开启深度监听
+          immediate: true // 立即执行一次 「 首次渲染时，执行一次 」
+        }
+      }
+    })
+
+    app.mount("#app")
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$watch</title>
+  <link rel="icon" href="https://vuejs.org/logo.svg">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <h2>{{count}}</h2>
+    <button @click="count++">修改count</button>
+    <!-- 点击后，再点击修改count，不会触发侦听回调的再次执行 -->
+    <button @click="unwatch">停止监听</button>
+  </div>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          count: 0,
+          unwatch: null
+        }
+      },
+      created() {
+        this.unwatch = this.$watch("count", (newValue, oldValue) => {
+          console.log("侦听到count改变")
+        }, { immediate: true })
+      }
+    })
+
+    app.mount("#app")
+  </script>
+</body>
+</html>

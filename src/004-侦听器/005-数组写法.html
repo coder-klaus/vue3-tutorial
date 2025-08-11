@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组写法</title>
+  <link rel="icon" href="https://vuejs.org/logo.svg">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <h2>{{ info.name }} -- {{ info.age }}</h2>
+    <button @click="changeInfo">修改info</button>
+  </div>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          info: { name: "Klaus", age: 18 }
+        }
+      },
+      methods: {
+        changeInfo() {
+          this.info = { name: "John", age: 18 }
+        },
+
+        watchInfo(newValue, oldValue) {
+          console.log("watchInfo1")
+        }
+      },
+      watch: {
+        // 如果侦听器配置为数组，则触发时会依次调用数组中的每个处理器
+        'info': [
+          {
+            handler: 'watchInfo',
+            deep: true
+          },
+
+          (newValue, oldValue) => {
+            console.log("watchInfo2")
+          }
+        ]
+      }
+    })
+
+    app.mount("#app")
+  </script>
+</body>
+</html>

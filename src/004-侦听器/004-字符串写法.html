@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字符串写法</title>
+  <link rel="icon" href="https://vuejs.org/logo.svg">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <h2>{{ info.name }} -- {{ info.age }}</h2>
+    <button @click="changeInfoName">修改info.name</button>
+  </div>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          info: { name: "Klaus", age: 18 }
+        }
+      },
+      methods: {
+        changeInfoName() {
+          this.info.name = "John"
+        },
+
+        watchInfo(newValue, oldValue) {
+          console.log("侦听到info改变")
+        }
+      },
+      watch: {
+        // 如果是字符串，自动去 methods 中寻找同名方法
+        'info': {
+          handler: 'watchInfo',
+          deep: true
+        }
+      }
+    })
+
+    app.mount("#app")
+  </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基本使用</title>
+  <link rel="icon" href="https://vuejs.org/logo.svg">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <h2>{{message}}</h2>
+    <button @click="changeMessage">修改message</button>
+
+    <hr>
+
+    <h2>{{ info.name }}</h2>
+    <h2>{{ info.age }}</h2>
+    <button @click="changeInfo">修改info</button>
+
+    <hr>
+
+    <h2>{{ info.name }}</h2>
+    <button @click="changeInfoName">通过属性修改info.name</button>
+  </div>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          message: "Hello Vue",
+          info: { name: "Steve Jobs", age: 34, friends: ["Jobs", "Wozniak", "Ritchie"] }
+        }
+      },
+      methods: {
+        changeMessage() {
+          this.message = "Hello React"
+        },
+        changeInfo() {
+          this.info = { name: "Albert Einstein", age: 45, friends: ["Einstein", "Newton", "Tesla"] }
+        },
+        changeInfoName() {
+          // 侦听器默认是浅层监听，只有属性值的值或引用改变，才会触发侦听器
+          // 如果想要监听对象的属性值，需要通过 deep 选项 开启深度监听
+          this.info.name = "Albert Einstein"
+        }
+      },
+      watch: {
+        // 侦听器默认可以接收到两个参数值，分别为 新值 和 旧值
+        message(newValue, oldValue) {
+          console.log('message发生了变化')
+          console.log('新值', newValue)
+          console.log('旧值', oldValue)
+        },
+        info(newValue, oldValue) {
+          // newValue 和 oldValue 是 info 代理对象的引用
+          console.log(newValue, oldValue)
+
+          // info值被整体替换，所以新旧值的引用地址是不同的
+          console.log(newValue === oldValue) // false
+
+          // 可以通过 toRaw 方法获取原生对象 => 深度解除代理
+          console.log(Vue.toRaw(newValue)) // {name: 'Albert Einstein', age: 45, friends: Array(3)}
+
+          // 虽然也可以通过扩展运算符获取原生对象，但是不推荐 => 浅层解除代理
+          console.log({ ...newValue }) // {name: 'Albert Einstein', age: 45, friends: Proxy(Array)}
+        }
+      }
+    })
+
+    app.mount("#app")
+  </script>
+</body>
+</html>
