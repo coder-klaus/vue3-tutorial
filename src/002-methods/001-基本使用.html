@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基本使用</title>
+  <link rel="icon" href="https://vuejs.org/logo.svg">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div>
+      <!-- 可以直接在模板中使用 data 中的数据 -->
+      <div>{{ message }}</div>
+      <!-- 可以直接在模板中使用 methods 中的方法 -->
+      <button @click="changeMsg">change msg</button>
+    </div>
+  </div>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          message: 'Hello Vue'
+        }
+      },
+      methods: {
+        // 不要写成箭头函数
+        changeMsg() {
+          // 可以直接通过组件实例获取到 data 中的数据
+          this.message = 'Hello React' // this 指向代理对象
+        }
+      }
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+</html>
