@@ -1,0 +1,185 @@
+{
+  "main": {
+    "id": "c04d516dc5465daf",
+    "type": "split",
+    "children": [
+      {
+        "id": "36aadd15363488b2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5803dcf0dadf06aa",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/VOA.md"
+              },
+              "icon": "excalidraw-icon",
+              "title": "VOA"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "468e6258b6222fc2",
+    "type": "split",
+    "children": [
+      {
+        "id": "55c5e8dc84e8a1a8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5d1c3fd9040e8b31",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "f1a8a7f2554576c8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a7140b95254622b6",
+    "type": "split",
+    "children": [
+      {
+        "id": "5ada5d28589b3eac",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "989e2aa152d1b86a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "001-邂逅React/001-简介/001-简介.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "001-简介 的反向链接列表"
+            }
+          },
+          {
+            "id": "b21976644e85db25",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "001-邂逅React/001-简介/001-简介.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "001-简介 的出链列表"
+            }
+          },
+          {
+            "id": "23aa6c92dd4ef6b1",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "command-palette:打开命令面板": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "obsidian-spaced-repetition:复习卡片": false,
+      "flashcards-obsidian:Generate flashcards": false,
+      "canvas:新建白板": false
+    }
+  },
+  "active": "5803dcf0dadf06aa",
+  "lastOpenFiles": [
+    "VOA/002-methods/001-methods.md",
+    "Excalidraw/VOA.md",
+    "VOA/002-methods/001-methods~.md",
+    "VOA/001-data/001-概念~.md",
+    "VOA/004-watch/002-概念.md",
+    "VOA/001-data/001-概念.md",
+    "VOA/004-watch/004-$watch~.md",
+    "VOA/004-watch/003-一些其它写法~.md",
+    "VOA/004-watch/002-配置选项~.md",
+    "VOA/004-watch/002-基本概念~.md",
+    "VOA/004-watch/001-副作用~.md",
+    "VOA/004-watch/004-$watch.md",
+    "VOA/004-watch/Untitled.md",
+    "VOA/004-watch/003-一些其它写法.md",
+    "VOA/004-watch/002-配置选项.md",
+    "未命名.canvas",
+    "VOA/003-computed/002-计算缓存.md",
+    "VOA/001-data/001-data.md",
+    "Excalidraw/Drawing 2025-08-11 14.20.23.excalidraw.md",
+    "VOA/004-watch/002-基本概念.md",
+    "VOA/004-watch/001-副作用.md",
+    "VOA/004-watch",
+    "VOA/Untitled Folder",
+    "VOA/003-computed/001-概念.md",
+    "VOA/003-computed/003-完整写法~.md",
+    "VOA/003-computed/001-概念~.md",
+    "VOA/003-computed/003-完整写法.md",
+    "VOA/003-完整写法.md",
+    "VOA/Untitled.md",
+    "VOA/001-data",
+    "VOA/002-methods",
+    "VOA/003-computed",
+    "VOA/002 - methods",
+    "VOA/001 - data",
+    "未命名",
+    "VOA",
+    "Excalidraw",
+    "Pasted image 20250727171406.png"
+  ]
+}
