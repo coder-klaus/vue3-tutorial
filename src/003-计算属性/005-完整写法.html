@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>完整写法</title>
+  <link rel="icon" href="https://vuejs.org/logo.svg">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <h2>{{ fullname }}</h2>
+    <h2>{{ username }}</h2>
+
+    <button @click="setFullname">change fullname</button>
+  </div>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          firstname: "Klaus",
+          lastname: "Wang"
+        }
+      },
+      computed: {
+        // 语法糖的写法 => 只读计算属性
+        // 只有 getter 函数时，可以简写为 单独的方法调用
+        username() {
+          return this.firstname + " " + this.lastname
+        },
+
+        // 完整的写法 => 可读写计算属性
+        // 只要有 setter 函数，就不能简写
+        fullname: {
+          // getter 函数
+          get: function() {
+            return this.firstname + " " + this.lastname
+          },
+          // setter 函数 => 参数为设置的新值
+          set: function(value) {
+            const names = value.split(" ")
+            this.firstname = names[0]
+            this.lastname = names[1]
+          }
+        }
+      },
+      methods: {
+        setFullname() {
+          this.fullname = "Albert Einstein"
+        }
+      }
+    })
+
+    app.mount("#app")
+  </script>
+</body>
+</html>

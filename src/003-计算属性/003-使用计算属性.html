@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>使用计算属性</title>
+  <link rel="icon" href="https://vuejs.org/logo.svg">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <!-- 使用计算属性 -->
+    <h2>{{ fullname }}</h2>
+    <h2>{{ fullname }}</h2>
+    <h2>{{ fullname }}</h2>
+  </div>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          firstName: "Klaus",
+          lastName: "Wang"
+        }
+      },
+      computed: {
+        // 计算属性默认对应的是一个 getter 函数
+        fullname() {
+          // 日志仅打印了一次，说明计算属性被调用了一次
+          console.log("-----fullname-----")
+          return this.firstName + " " + this.lastName
+        }
+      }
+    })
+
+    app.mount("#app")
+  </script>
+</body>
+</html>
